@@ -1,8 +1,7 @@
 package com.manage.manageschool.model;
-
+import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.text.DateFormat;
 
 @Table(name = "etudiant",schema = "public")
@@ -27,5 +26,9 @@ public class Etudiant {
     private DateFormat date;
     private String responsableEtudiant;
     private String contactResponsable;
+
+
+
+
 
 }

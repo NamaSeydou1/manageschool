@@ -1,10 +1,8 @@
 package com.manage.manageschool.model;
 
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
-import java.util.UUID;
+import jakarta.persistence.*;
 
 @Entity
 @Data
@@ -12,6 +10,10 @@ import java.util.UUID;
 public class Semestre {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long idsemestre;
+    @Column(nullable = true)
     private String libSemestre;
+    @ManyToOne
+    @JoinColumn(name="idannee")
+    private AnneeScolaire anneeScolaire;
 }

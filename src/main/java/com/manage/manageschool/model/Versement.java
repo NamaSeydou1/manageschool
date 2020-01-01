@@ -3,9 +3,8 @@ package com.manage.manageschool.model;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.text.DateFormat;
-import java.util.UUID;
 
 @Data
 @Entity
@@ -16,6 +15,6 @@ public class Versement {
     private Long idVersement;
     private Double montant;
     private DateFormat dateVersement;
-    @ManyToOne()
-    private ScolariteEtudiant scolariteEtudiant;
+    //@ManyToOne()
+   // private ScolariteEtudiant scolariteEtudiant;
 }

@@ -2,9 +2,9 @@ package com.manage.manageschool.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -13,9 +13,11 @@ public class AnneeScolaire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long idannee;
+    @Column(nullable = true)
     private String annee;
-    @OneToMany()
-    private Semestre semestres;
+    @OneToMany
+    @Column(nullable = true)
+    private List<Semestre> semestreList;
 
 }

@@ -2,7 +2,7 @@ package com.manage.manageschool.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Data
 @Entity
@@ -11,12 +11,16 @@ public class AttributionTypeUe {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idAttribUe;
+    @Column(nullable = true)
     private Status status;
+    @Column(nullable = true)
     private Integer coef;
 
-    @ManyToOne()
-    private Module module;
-    @ManyToOne()
-    private Niveau niveau;
+   // @ManyToOne()
+//   @Column(nullable = true)
+//    private Module module;
+   // @ManyToOne()
+//   @Column(nullable = true)
+//    private Niveau niveau;
 
 }

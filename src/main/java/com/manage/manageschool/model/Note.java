@@ -2,7 +2,7 @@ package com.manage.manageschool.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Data
@@ -12,7 +12,8 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idNote;
     private Float valeurNote;
-    private Etudiant etudiant;
-    private Module module;
-    private Semestre semestre;
+   // private Etudiant etudiant;
+   // private Module module;
+//    @Column
+//    private Semestre semestre;
 }

@@ -3,7 +3,7 @@ package com.manage.manageschool.model;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.UUID;
 
 @Data
@@ -18,8 +18,8 @@ public class Classe
 //    @GeneratedValue(strategy = GenerationType.AUTO)
 //    private Long idClasse;
     private String libelleClasse;
-    @ManyToOne()
-    private Niveau niveau;
-    @OneToMany()
-    private Etudiant etudiant;
+  //  @ManyToOne()
+   // private Niveau niveau;
+   // @OneToMany()
+   // private Etudiant etudiant;
 }
