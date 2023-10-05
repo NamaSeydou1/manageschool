@@ -12,4 +12,5 @@ import javax.persistence.Table;
 public class ScolariteEtudiant {
 @ManyToOne(optional = false)
     private Etudiant etudiant;
+    private Scolarite scolarite;
 }
