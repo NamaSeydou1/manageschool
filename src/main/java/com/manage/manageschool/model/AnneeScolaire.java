@@ -2,16 +2,20 @@ package com.manage.manageschool.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
-@Table(name = "anneescolaire")
+@Table(name = "annee_scolaire", schema = "public")
 public class AnneeScolaire {
-    private String annee;
 
-    @ManyToMany()
-    private Semestre semestre;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private String annee;
+    @OneToMany()
+    private Semestre semestres;
+
 }

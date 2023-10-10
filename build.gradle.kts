@@ -17,6 +17,20 @@ configurations {
 	}
 }
 
+
+buildscript {
+	repositories {
+		maven {
+			url = uri("https://plugins.gradle.org/m2/")
+		}
+	}
+	dependencies {
+		classpath("org.hibernate.orm:hibernate-gradle-plugin:6.1.7.Final")
+	}
+}
+
+apply(plugin = "org.hibernate.orm")
+
 repositories {
 	mavenCentral()
 }
@@ -26,10 +40,12 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-mail")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	//implementation("org.springframework.boot:spring-boot-data-rest")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	implementation("jakarta.persistence:jakarta.persistence-api:3.0.0")
 }
 
 tasks.withType<Test> {

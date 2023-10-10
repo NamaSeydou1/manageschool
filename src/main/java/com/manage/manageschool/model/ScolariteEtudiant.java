@@ -1,16 +1,19 @@
 package com.manage.manageschool.model;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "scolariteEtudiant")
+@Table(name = "scolarite_etudiant",schema = "public")
 public class ScolariteEtudiant {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @ManyToOne(optional = false)
     private Etudiant etudiant;
     private Double montantScolarite;

@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.text.DateFormat;
 
-@Table(name = "etudiant")
+@Table(name = "etudiant",schema = "public")
 @Entity
 @Data
 public class Etudiant {
