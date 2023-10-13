@@ -1,22 +1,16 @@
-package com.manage.manageschool.model;
+package com.manage.manageschool.domain.base;
 
+import com.manage.manageschool.model.Sexe;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.text.DateFormat;
 
-@Table(name = "etudiant",schema = "public")
-@Entity
 @Data
-public class Etudiant {
+public class EtudiantRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private long idEtudiant;
-
-    @Column(nullable = false)
     private String nom;
-    @Column(nullable = false)
     private String prenoms;
     private String adressemail;
     private String adresse;
