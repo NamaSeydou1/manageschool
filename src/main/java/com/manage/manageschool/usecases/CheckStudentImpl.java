@@ -72,6 +72,15 @@ public class CheckStudentImpl implements CheckStudentData {
 
 
     @Override
+    public void supprimerEtudiant(Long idEtudiant) {
+        boolean exists = etudiantRepository.existsById(idEtudiant);
+        if (!exists){
+            throw new RuntimeException("L'etudiant rattache au matricule"+idEtudiant +" n'existe pas dans la base");
+        }
+        etudiantRepository.deleteById(idEtudiant);
+    }
+
+    @Override
     public List<Etudiant> etudiantList() {
         return etudiantRepository.findAll();
     }

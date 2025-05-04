@@ -13,6 +13,6 @@ public interface CheckStudentData {
 
     Etudiant etud (EtudiantRequest input); //creation
     Etudiant modifierEtudiant (Long idEtudiant, EtudiantRequest input); // modification
-
+    void supprimerEtudiant(Long idEtudiant);
     List<Etudiant> etudiantList();
 }
