@@ -50,6 +50,28 @@ public class CheckStudentImpl implements CheckStudentData {
     }
 
     @Override
+    public Etudiant modifierEtudiant(Long idEtudiant, EtudiantRequest input) {
+        Etudiant etudiant = etudiantRepository.findById(idEtudiant)
+                .orElseThrow(() -> new RuntimeException("Étudiant non trouvé avec l'ID : " + idEtudiant));
+
+        // Mise à jour des champs
+        etudiant.setAdresse(input.getAdresse());
+        etudiant.setDate(input.getDate());
+        etudiant.setEcoleanterieure(input.getEcoleanterieure());
+        etudiant.setNom(input.getNom());
+        etudiant.setPrenoms(input.getPrenoms());
+        etudiant.setResponsableEtudiant(input.getResponsableEtudiant());
+        etudiant.setNiveauprecedent(input.getNiveauprecedent());
+        etudiant.setAnneeEntre(input.getAnneeEntre());
+        etudiant.setContactResponsable(input.getContactResponsable());
+        etudiant.setSexe(input.getSexe());
+        etudiant.setAdressemail(input.getAdressemail());
+
+        return etudiantRepository.save(etudiant);
+    }
+
+
+    @Override
     public List<Etudiant> etudiantList() {
         return etudiantRepository.findAll();
     }
