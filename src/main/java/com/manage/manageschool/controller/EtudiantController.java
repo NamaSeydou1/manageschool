@@ -2,7 +2,7 @@
  * @Author:
  * @Date: 2024-11-17 20:32:06
  * @LastEditors: 
- * @LastEditTime: 2025-05-03 21:24:19
+ * @LastEditTime: 2025-05-04 13:14:45
  * @FilePath: src/main/java/com/manage/manageschool/controller/EtudiantController.java
  * @Description: 这是默认设置, 可以在设置》工具》File Description中进行配置
  */
@@ -35,15 +35,12 @@ public class EtudiantController {
         
         return checkStudentData.etud(input);
     }
-
-    /*
-    @PutMapping("/{id}")
-    public ResponseEntity<Etudiant> modifierEtudiant(@PathVariable String id,@RequestBody EtudiantRequest request) {
-
-        Etudiant etudiantModifie = checkStudentData.etud(id, request);
-        return ResponseEntity.ok(etudiantModifie);
-    } */
     
+
+    @PutMapping("/modifier-etudiant/{id}")
+    public Etudiant modifierEtudiant(@PathVariable("id") Long id, @RequestBody EtudiantRequest input) {
+        return checkStudentData.modifierEtudiant(id,input);
+    }
     
 
     @GetMapping("/")
