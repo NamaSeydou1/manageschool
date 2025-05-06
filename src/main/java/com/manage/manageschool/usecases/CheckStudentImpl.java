@@ -5,9 +5,12 @@ import com.manage.manageschool.domain.business.usescases.CheckStudentData;
 import com.manage.manageschool.model.Etudiant;
 import com.manage.manageschool.repository.EtudiantRepository;
 import org.springframework.context.annotation.Primary;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Primary
@@ -54,6 +57,12 @@ public class CheckStudentImpl implements CheckStudentData {
         Etudiant etudiant = etudiantRepository.findById(idEtudiant)
                 .orElseThrow(() -> new RuntimeException("Étudiant non trouvé avec l'ID : " + idEtudiant));
 
+        Optional<Etudiant> optionalEtudiant = etudiantRepository.findById(idEtudiant);
+        System.out.println("Étudiant trouvé ? " + optionalEtudiant.isPresent());
+
+        if (optionalEtudiant.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Étudiant avec l’ID " + idEtudiant + " non trouvé.");
+        }
         // Mise à jour des champs
         etudiant.setAdresse(input.getAdresse());
         etudiant.setDate(input.getDate());
